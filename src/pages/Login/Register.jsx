@@ -12,9 +12,9 @@ const Register = () => {
 backdrop-blur-sm bg-[#ffffff27] shadow-xl border border-[#ffffff] mx-auto mb-10 absolute top-10 left-10 "
           >
             <form className="card-body ">
-              <h1 className="text-5xl font-medium text-center mb-7">
+              <h2 className="text-5xl font-medium text-center mb-7">
                 Register
-              </h1>
+              </h2>
               <div className="form-control mb-4">
                 <input
                   type="text"
