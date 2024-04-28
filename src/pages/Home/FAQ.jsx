@@ -45,7 +45,7 @@ const FAQ = () => {
         <div className="collapse collapse-arrow join-item0">
           <input type="radio" name="my-accordion-4" />
           <div className="collapse-title text-xl font-medium">
-            What if I have a question that's not addressed here?
+            What if I have a question that is not addressed here?
           </div>
           <div className="collapse-content">
             <p>
