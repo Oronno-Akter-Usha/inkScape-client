@@ -75,13 +75,14 @@ const Navbar = () => {
             </span>
           </a>
         </div>
-        <div className="navbar-end pr-6">
+        <div className="navbar-end pr-6 ">
           <div className=" hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navLinks}</ul>
           </div>
-          <a className="btn px-5 bg-gradient-to-b from-amber-500 to-amber-600 text-white">
+
+          <button className="btn px-3 py-0 md:px-5 bg-gradient-to-br from-amber-400 to-amber-600 text-white">
             Login
-          </a>
+          </button>
         </div>
       </div>
     </div>
