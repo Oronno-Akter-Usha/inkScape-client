@@ -108,7 +108,7 @@ const Navbar = () => {
           </label>
 
           <Link to={"/login"}>
-            <button className="btn px-3 py-0 md:px-5 bg-gradient-to-br from-amber-400 to-amber-600 text-white">
+            <button className="btn px-3 py-0 md:px-5 bg-gradient-to-br from-amber-400 to-amber-600 text-white border-none">
               Login
             </button>
           </Link>
