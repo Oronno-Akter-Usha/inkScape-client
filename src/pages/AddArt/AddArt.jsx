@@ -20,8 +20,6 @@ const AddArt = () => {
     const userEmail = form.userEmail.value;
     const shortDescription = form.shortDescription.value;
 
-    form.reset();
-
     const newArt = {
       itemName,
       subcategory,
@@ -51,11 +49,12 @@ const AddArt = () => {
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
-            text: " Coffeee Added Successfully",
+            text: " Art Added Successfully",
             icon: "success",
             confirmButtonText: "Ok",
           });
         }
+        form.reset();
       });
   };
   return (
