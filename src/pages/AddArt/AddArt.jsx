@@ -1,6 +1,40 @@
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+
 const AddArt = () => {
+  const { user } = useContext(AuthContext);
+
   const handleAddArt = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const itemName = form.itemName.value;
+    const subcategory = form.subcategory.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const customization = form.customization.value;
+    const stockStatus = form.stockStatus.value;
+    const photo = form.photo.value;
+    const processingTime = form.processingTime.value;
+    const userName = form.userName.value;
+    const userEmail = form.userEmail.value;
+    const shortDescription = form.shortDescription.value;
+
+    form.reset();
+
+    const art = {
+      itemName,
+      subcategory,
+      price,
+      rating,
+      customization,
+      stockStatus,
+      photo,
+      processingTime,
+      userName,
+      userEmail,
+      shortDescription,
+    };
+    console.log(art);
   };
   return (
     <div className="mt-28 mx-5 md:mx-20">
@@ -16,23 +50,32 @@ const AddArt = () => {
             </label>
             <input
               type="text"
-              name="name"
+              name="itemName"
               placeholder="Enter name"
               className="input input-bordered w-full"
               required
             />
           </div>
-          <div className="form-control md:w-1/2">
+          <div className="form-control md:w-1/2 mb-6 md:mb-0">
             <label className="label">
               <span className="label-text font-bold">Subcategory Name</span>
             </label>
-            <input
-              type="text"
+            <select
+              id="subcategory"
               name="subcategory"
-              placeholder="Enter subcategory name"
-              className="input input-bordered w-full"
+              className="select select-bordered "
               required
-            />
+            >
+              <option disabled selected>
+                Choose one
+              </option>
+              <option value="landscape painting">Landscape Painting</option>
+              <option value="protrait drawing"> Portrait Drawing</option>
+              <option value="watercolour painting">Watercolour Painting</option>
+              <option value="oil painting">Oil Painting</option>
+              <option value="charcoal sketching">Charcoal Sketching</option>
+              <option value="cartoon drawing">Cartoon Drawing</option>
+            </select>
           </div>
         </div>
         {/* form price and rating row */}
@@ -62,7 +105,7 @@ const AddArt = () => {
             />
           </div>
         </div>
-        {/* form customization and processing_time row */}
+        {/* form customization  row */}
         <div className="md:flex gap-5 mb-6">
           <div className="form-control md:w-1/2 mb-6 md:mb-0">
             <label className="label">
@@ -71,14 +114,46 @@ const AddArt = () => {
             <select
               id="customization"
               name="customization"
-              className="input input-bordered"
+              className="select select-bordered "
             >
-              <option value="chooseOne" disabled selected>
+              <option disabled selected>
                 Choose one
               </option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
+          </div>
+          <div className="form-control md:w-1/2 mb-6 md:mb-0">
+            <label className="label">
+              <span className="label-text font-bold">Stock Status</span>
+            </label>
+            <select
+              id="stockStatus"
+              name="stockStatus"
+              className="select select-bordered"
+            >
+              <option disabled selected>
+                Choose one
+              </option>
+              <option value="inStock"> In stock</option>
+              <option value="madeToOrder">Made to Order</option>
+            </select>
+          </div>
+        </div>
+
+        {/* form photo and processing_time row */}
+        <div className=" md:flex gap-5 mb-6">
+          <div className="form-control md:w-1/2">
+            <label className="label">
+              <span className="label-text font-bold">Photo</span>
+            </label>
+            <input
+              type="text"
+              name="photo"
+              placeholder="Enter photo URL"
+              className="input input-bordered w-full"
+              required
+            />
           </div>
           <div className="form-control md:w-1/2">
             <label className="label">
@@ -101,9 +176,10 @@ const AddArt = () => {
             </label>
             <input
               type="text"
-              name=""
-              placeholder=""
+              name="userName"
+              defaultValue={user?.displayName}
               className="input input-bordered w-full"
+              readOnly
               required
             />
           </div>
@@ -113,24 +189,10 @@ const AddArt = () => {
             </label>
             <input
               type="text"
-              name=""
-              placeholder=""
+              name="userEmail"
+              defaultValue={user?.email}
               className="input input-bordered w-full"
-              required
-            />
-          </div>
-        </div>
-        {/* form photo row */}
-        <div className="mb-6">
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text font-bold">Photo</span>
-            </label>
-            <input
-              type="text"
-              name="photo"
-              placeholder="Enter photo URL"
-              className="input input-bordered w-full"
+              readOnly
               required
             />
           </div>

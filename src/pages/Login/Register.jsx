@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
@@ -8,6 +8,11 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [registerError, setRegisterError] = useState("");
   const { createUser } = useContext(AuthContext);
+
+  // navigation systems
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || "/";
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -35,6 +40,7 @@ const Register = () => {
 
     createUser(email, password, name, photo)
       .then((result) => {
+        navigate(from);
         console.log(result.user);
         const user = { email, password, name, photo };
 

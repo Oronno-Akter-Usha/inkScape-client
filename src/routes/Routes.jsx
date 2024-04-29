@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Login/Register";
 import AddArt from "../pages/AddArt/AddArt";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,7 +18,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addArt",
-        element: <AddArt></AddArt>,
+        element: (
+          <PrivateRoute>
+            <AddArt></AddArt>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

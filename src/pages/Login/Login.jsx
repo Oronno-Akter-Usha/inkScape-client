@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { FaSquareGithub } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -9,6 +9,10 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
+
+  // navigation systems
+  const navigate = useNavigate();
+  const from = "/";
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -20,6 +24,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         console.log(result.user);
+        navigate(from);
 
         Swal.fire({
           title: "Success!",
