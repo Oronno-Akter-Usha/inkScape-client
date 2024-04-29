@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
@@ -11,8 +11,7 @@ const Register = () => {
 
   // navigation systems
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location?.state || "/";
+  const from = "/";
 
   const handleRegister = (e) => {
     e.preventDefault();

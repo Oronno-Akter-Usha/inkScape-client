@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { FaSquareGithub } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -10,9 +10,13 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
 
+  const registerStr = "Don't have an account?";
+
   // navigation systems
   const navigate = useNavigate();
-  const from = "/";
+  const location = useLocation();
+  const from = location?.state || "/";
+  console.log(from);
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -36,6 +40,30 @@ const Login = () => {
       .catch((error) => {
         console.error(error);
 
+        Swal.fire({
+          title: "Error!",
+          text: error,
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
+      });
+  };
+
+  const handleSocialLogin = (socialProvider) => {
+    socialProvider()
+      .then((result) => {
+        if (result.user) {
+          navigate(from);
+          Swal.fire({
+            title: "Success!",
+            text: " Successfully login",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
         Swal.fire({
           title: "Error!",
           text: error,
@@ -98,15 +126,15 @@ backdrop-blur-sm bg-[#ffffff27] shadow-xl border border-[#ffffff] mx-auto mb-10 
             </form>
 
             <span className="flex justify-center gap-5 mt-2 text-3xl">
-              <button onClick={googleLogin}>
+              <button onClick={() => handleSocialLogin(googleLogin)}>
                 <FcGoogle />
               </button>
-              <button onClick={githubLogin}>
+              <button onClick={() => handleSocialLogin(githubLogin)}>
                 <FaSquareGithub />
               </button>
             </span>
             <p className="text-black text-base text-center mb-4">
-              Don't have an account?
+              {registerStr}
               <Link to={"/register"}>
                 <button className="btn btn-link text-black text-base m-0 p-2">
                   Register

@@ -16,7 +16,7 @@ const Navbar = () => {
         Home
       </NavLink>
       <NavLink
-        to={"/art&craft"}
+        to={"/artCraft"}
         className={({ isActive }) =>
           isActive ? "font-bold mr-10 text-amber-600" : "mr-10"
         }

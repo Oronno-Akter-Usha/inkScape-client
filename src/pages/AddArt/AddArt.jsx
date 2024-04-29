@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddArt = () => {
   const { user } = useContext(AuthContext);
@@ -21,7 +22,7 @@ const AddArt = () => {
 
     form.reset();
 
-    const art = {
+    const newArt = {
       itemName,
       subcategory,
       price,
@@ -34,7 +35,28 @@ const AddArt = () => {
       userEmail,
       shortDescription,
     };
-    console.log(art);
+    console.log(newArt);
+
+    // send  data to the server
+    fetch("http://localhost:5000/arts", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newArt),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: " Coffeee Added Successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        }
+      });
   };
   return (
     <div className="mt-28 mx-5 md:mx-20">
@@ -85,7 +107,7 @@ const AddArt = () => {
               <span className="label-text font-bold">Price</span>
             </label>
             <input
-              type="number"
+              type="text"
               name="price"
               placeholder="Enter price"
               className="input input-bordered w-full"
@@ -97,7 +119,7 @@ const AddArt = () => {
               <span className="label-text font-bold">Rating</span>
             </label>
             <input
-              type="number"
+              type="text"
               name="rating"
               placeholder="Enter rating"
               className="input input-bordered w-full"
