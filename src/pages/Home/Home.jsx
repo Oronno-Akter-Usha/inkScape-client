@@ -1,9 +1,7 @@
-import app from "../../firebase/firebase.config";
 import Banner from "./Banner";
 import FAQ from "./FAQ";
 
 const Home = () => {
-  console.log(app);
   return (
     <div className="">
       <Banner></Banner>
