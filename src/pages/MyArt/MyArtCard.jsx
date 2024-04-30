@@ -9,7 +9,7 @@ const MyArtCard = ({ art, handleDelete }) => {
     art;
 
   return (
-    <div className="card shadow-xl w-[300px]">
+    <div className="card shadow-xl ">
       <figure className="h-[200px] w-full relative">
         <img src={photo} alt="Painting and Drawing" />
         <div className="absolute  top-3 right-3 flex gap-2">

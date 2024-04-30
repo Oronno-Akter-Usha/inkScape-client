@@ -17,16 +17,16 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col md:ml-20  w-24">
-          <h6 className="footer-title text-black">Links</h6>
+          <h6 className="footer-title ">Links</h6>
           <a className="link link-hover">Home</a>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
           <a className="link link-hover">Art & Craft</a>
+          <a className="link link-hover">Add Art</a>
+          <a className="link link-hover">My Art</a>
         </div>
 
         <div>
           <form>
-            <h6 className="footer-title text-black">Newsletter</h6>
+            <h6 className="footer-title ">Newsletter</h6>
             <fieldset className="form-control w-80">
               <label className="label">
                 <span className="label-text">Enter your email address</span>
