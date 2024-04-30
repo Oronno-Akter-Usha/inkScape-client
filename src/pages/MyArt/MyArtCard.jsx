@@ -2,10 +2,12 @@ import PropTypes from "prop-types";
 import { IoIosStar } from "react-icons/io";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
-const MyArtCard = ({ art }) => {
-  console.log(art);
+
+const MyArtCard = ({ art, handleDelete }) => {
+  console.log(art, handleDelete);
   const { _id, itemName, price, rating, customization, stockStatus, photo } =
     art;
+
   return (
     <div className="card shadow-xl w-[300px]">
       <figure className="h-[200px] w-full relative">
@@ -15,12 +17,15 @@ const MyArtCard = ({ art }) => {
             <MdEdit className="text-3xl  text-white" />
           </Link>
 
-          <Link className="p-1 rounded-sm bg-red-600">
+          <button
+            onClick={() => handleDelete(_id)}
+            className="p-1 rounded-sm bg-red-600"
+          >
             <MdDelete
               className="text-3xl text-white
            "
             />
-          </Link>
+          </button>
         </div>
       </figure>
       <div className="card-body">
@@ -37,12 +42,6 @@ const MyArtCard = ({ art }) => {
         </div>
         <p>Customization: {customization}</p>
         <p className="flex items-center">Stock Status : {stockStatus}</p>
-
-        {/* <Link to={`/details/${art._id}`}>
-          <button className="btn px-3 py-0 md:px-5 bg-gradient-to-br from-amber-400 to-amber-600 text-white border-none mt-4">
-            View Details
-          </button>
-        </Link> */}
       </div>
     </div>
   );
@@ -50,6 +49,7 @@ const MyArtCard = ({ art }) => {
 
 MyArtCard.propTypes = {
   art: PropTypes.object,
+  handleDelete: PropTypes.object,
 };
 
 export default MyArtCard;
