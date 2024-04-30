@@ -8,6 +8,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import ArtCraft from "../pages/Art&Craft/ArtCraft";
 import Details from "../pages/Art&Craft/Details";
+import MyArt from "../pages/MyArt/MyArt";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +41,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddArt></AddArt>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myArt",
+        element: (
+          <PrivateRoute>
+            <MyArt></MyArt>
           </PrivateRoute>
         ),
       },

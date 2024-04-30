@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import ArtCard from "../Shared/ArtCard";
+import ArtCard from "./ArtCard";
 
 const CraftItems = () => {
   const arts = useLoaderData();
