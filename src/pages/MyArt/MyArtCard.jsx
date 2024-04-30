@@ -4,13 +4,14 @@ import { MdDelete, MdEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 const MyArtCard = ({ art }) => {
   console.log(art);
-  const { itemName, price, rating, customization, stockStatus, photo } = art;
+  const { _id, itemName, price, rating, customization, stockStatus, photo } =
+    art;
   return (
-    <div className="card shadow-xl">
+    <div className="card shadow-xl w-[300px]">
       <figure className="h-[200px] w-full relative">
         <img src={photo} alt="Painting and Drawing" />
         <div className="absolute  top-3 right-3 flex gap-2">
-          <Link className="p-1 rounded-sm bg-amber-400">
+          <Link to={`/update/${_id}`} className="p-1 rounded-sm bg-amber-400">
             <MdEdit className="text-3xl  text-white" />
           </Link>
 

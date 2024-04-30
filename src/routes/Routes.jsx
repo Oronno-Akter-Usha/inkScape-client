@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import ArtCraft from "../pages/Art&Craft/ArtCraft";
 import Details from "../pages/Art&Craft/Details";
 import MyArt from "../pages/MyArt/MyArt";
+import Update from "../pages/MyArt/Update";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -51,6 +52,12 @@ const router = createBrowserRouter([
             <MyArt></MyArt>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/arts/${params.id}`),
       },
 
       {
