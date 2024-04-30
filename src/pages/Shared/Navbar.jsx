@@ -1,10 +1,15 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Typewriter } from "react-simple-typewriter";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   console.log(user);
+
+  const handleDone = () => {
+    console.log(`Done after 5 loops!`);
+  };
 
   const navLinks = (
     <>
@@ -76,7 +81,16 @@ const Navbar = () => {
           </div>
           <a className="btn btn-ghost text-xl">
             <span className="bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-transparent bg-clip-text  text-2xl">
-              Ink Scape
+              <Typewriter
+                words={[" Ink Scape"]}
+                loop={5}
+                cursor
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+                onLoopDone={handleDone}
+              />
             </span>
           </a>
         </div>
