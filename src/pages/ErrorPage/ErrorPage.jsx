@@ -1,19 +1,19 @@
-import { Link, useRouteError } from "react-router-dom";
+import { useRouteError } from "react-router-dom";
+import Lottie from "lottie-react";
+import errorPage from "../../assets/error.json";
 
 const ErrorPage = () => {
   const error = useRouteError();
+
+  const style = {
+    width: "100%",
+  };
+
   return (
     <div className="flex flex-col justify-center items-center text-center h-screen">
       {error.status === 404 && (
-        <div className="mt-10">
-          <img
-            className="md:h-[400px]"
-            src="https://i.postimg.cc/zGgX7ZPt/13315300-5203299.jpg"
-            alt=""
-          />
-          <Link to={"/"}>
-            <p className="text-xl mb-3 text-amber-600">Go Back Home</p>
-          </Link>
+        <div className="mt-10 w-full">
+          <Lottie style={style} animationData={errorPage} loop={true}></Lottie>
         </div>
       )}
     </div>
