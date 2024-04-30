@@ -1,7 +1,9 @@
 const FAQ = () => {
   return (
     <div>
-      <h2 className=" font-bold text-3xl text-amber-500 mb-6">FAQ</h2>
+      <h2 className="font-bold text-3xl text-amber-500 mb-6 text-center">
+        FAQ
+      </h2>
       <div className="join join-vertical w-full  border border-amber-300 p-5">
         <div className="collapse collapse-arrow ">
           <input type="radio" name="my-accordion-4" />

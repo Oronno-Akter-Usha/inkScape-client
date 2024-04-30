@@ -90,12 +90,12 @@ const AddArt = () => {
               <option disabled selected>
                 Choose one
               </option>
-              <option value="landscape painting">Landscape Painting</option>
-              <option value="protrait drawing"> Portrait Drawing</option>
-              <option value="watercolour painting">Watercolour Painting</option>
-              <option value="oil painting">Oil Painting</option>
-              <option value="charcoal sketching">Charcoal Sketching</option>
-              <option value="cartoon drawing">Cartoon Drawing</option>
+              <option value="Landscape Painting">Landscape Painting</option>
+              <option value="Protrait Drawing"> Portrait Drawing</option>
+              <option value="watercolour Painting">Watercolour Painting</option>
+              <option value="Oil Painting">Oil Painting</option>
+              <option value="Charcoal Sketching">Charcoal Sketching</option>
+              <option value="Cartoon Drawing">Cartoon Drawing</option>
             </select>
           </div>
         </div>
@@ -140,8 +140,8 @@ const AddArt = () => {
               <option disabled selected>
                 Choose one
               </option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
             </select>
           </div>
           <div className="form-control md:w-1/2 mb-6 md:mb-0">
@@ -156,8 +156,8 @@ const AddArt = () => {
               <option disabled selected>
                 Choose one
               </option>
-              <option value="inStock"> In stock</option>
-              <option value="madeToOrder">Made to Order</option>
+              <option value="In stock"> In Stock</option>
+              <option value="Made to Order">Made to Order</option>
             </select>
           </div>
         </div>

@@ -7,6 +7,7 @@ import AddArt from "../pages/AddArt/AddArt";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import ArtCraft from "../pages/Art&Craft/ArtCraft";
+import Details from "../pages/Art&Craft/Details";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,12 +17,23 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("http://localhost:5000/arts"),
       },
 
       {
         path: "/artCraft",
         element: <ArtCraft></ArtCraft>,
         loader: () => fetch("http://localhost:5000/arts"),
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/arts/${params.id}`),
       },
       {
         path: "/addArt",

@@ -36,7 +36,7 @@ const ArtCraft = () => {
                 <td>{art.price}</td>
                 <td>{art.stockStatus}</td>
                 <td>
-                  <Link to={"/details"}>
+                  <Link to={`/details/${art._id}`}>
                     <button className="btn px-3 py-0 md:px-5 bg-gradient-to-br from-amber-400 to-amber-600 text-white border-none">
                       View Details
                     </button>
