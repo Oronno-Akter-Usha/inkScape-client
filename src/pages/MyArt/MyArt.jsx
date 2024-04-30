@@ -8,7 +8,7 @@ const MyArt = () => {
   const [item, setItem] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myArt/${user?.email}`)
+    fetch(`https://ink-scape-sever.vercel.app/myArt/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -29,7 +29,7 @@ const MyArt = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         console.log("delete confirmed");
-        fetch(`http://localhost:5000/arts/${_id}`, {
+        fetch(`https://ink-scape-sever.vercel.app/arts/${_id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",

@@ -19,13 +19,13 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/arts"),
+        loader: () => fetch("https://ink-scape-sever.vercel.app/arts"),
       },
 
       {
         path: "/artCraft",
         element: <ArtCraft></ArtCraft>,
-        loader: () => fetch("http://localhost:5000/arts"),
+        loader: () => fetch("https://ink-scape-sever.vercel.app/arts"),
       },
       {
         path: "/details/:id",
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/arts/${params.id}`),
+          fetch(`https://ink-scape-sever.vercel.app/arts/${params.id}`),
       },
       {
         path: "/addArt",
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <Update></Update>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/arts/${params.id}`),
+          fetch(`https://ink-scape-sever.vercel.app/arts/${params.id}`),
       },
 
       {

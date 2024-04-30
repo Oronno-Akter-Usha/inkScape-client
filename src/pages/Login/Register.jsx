@@ -43,7 +43,7 @@ const Register = () => {
         console.log(result.user);
         const user = { email, password, name, photo };
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://ink-scape-sever.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

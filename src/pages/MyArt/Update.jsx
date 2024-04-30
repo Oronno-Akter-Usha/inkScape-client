@@ -44,7 +44,7 @@ const Update = () => {
     };
     console.log(updatedArt);
 
-    fetch(`http://localhost:5000/arts/${_id}`, {
+    fetch(`https://ink-scape-sever.vercel.app/arts/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
