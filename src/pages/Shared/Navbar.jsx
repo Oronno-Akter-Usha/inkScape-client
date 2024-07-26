@@ -66,8 +66,8 @@ const Navbar = () => {
   return (
     <div className="relative">
       <div
-        className="navbar w-full drop-shadow-xl
-        backdrop-blur-sm bg-[#FFFFFF30] shadow-xl fixed top-0 z-10 "
+        className="navbar w-full drop-shadow-2xl
+        backdrop-blur-3xl shadow-xl fixed top-0 z-10 "
       >
         <div className="navbar-start">
           <div className="dropdown">
@@ -114,7 +114,7 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1">{navLinks}</ul>
           </div>
 
-          <label className="swap swap-rotate mr-4 md:mr-7">
+          <label className=" swap swap-rotate mr-4 md:mr-7">
             {/* this hidden checkbox controls the state */}
             <input
               onChange={handleToggle}
@@ -124,7 +124,7 @@ const Navbar = () => {
 
             {/* sun icon */}
             <svg
-              className="swap-off fill-current w-8 h-8"
+              className="swap-on fill-current w-8 h-8"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -133,7 +133,7 @@ const Navbar = () => {
 
             {/* moon icon */}
             <svg
-              className="swap-on fill-current w-8 h-8"
+              className="swap-off fill-current w-8 h-8"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
