@@ -138,10 +138,10 @@ backdrop-blur-sm bg-[#ffffff27] shadow-xl border border-[#ffffff] mx-auto mb-10 
               </div>
             </form>
 
-            <p className="text-black text-base text-center mb-4">
+            <p className="text-base text-center mb-4">
               Already have an account?
               <Link to={"/login"}>
-                <button className="btn btn-link text-black text-base m-0 p-2">
+                <button className="btn btn-link text-base m-0 p-2">
                   Login
                 </button>
               </Link>
